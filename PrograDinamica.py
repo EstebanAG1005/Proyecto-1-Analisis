@@ -1,7 +1,9 @@
 import sys
+import time
 
 # Tabla para almacenar resultados previamente calculados (memoización)
 dp = [[-1 for i in range(100)] for j in range(100)]
+
 
 def matrixChainMemoised(p, i, j):
     if i == j:  # Caso base: no hay multiplicación necesaria
@@ -23,15 +25,26 @@ def matrixChainMemoised(p, i, j):
 
     return dp[i][j]  # Retorna el mínimo número de multiplicaciones
 
+
 def MatrixChainOrder(p, n):
     i = 1
     j = n - 1
     return matrixChainMemoised(p, i, j)  # Llama a la función con memoización
 
+
 # Código del controlador
-arr = [1, 2, 3, 4, 3]  # Lista de dimensiones de matrices
+# Lista de dimensiones de matrices
+arr = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50,
+       55, 60, 65, 70, 75, 80, 85]
 n = len(arr)
-print("Cantidad minima de multiplicaiones ", MatrixChainOrder(arr, n))
+
+start_time = time.time()
+cantidad = MatrixChainOrder(arr, n)
+end_time = time.time()
+
+time_elapsed = end_time - start_time
+print("\nTiempo de ejecución para el algoritmo DaC: ", time_elapsed)
+print("\nCantidad minima de multiplicaiones ", cantidad)
 
 # This code is contributed by rag2127
 
