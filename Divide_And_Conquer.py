@@ -26,3 +26,7 @@ if __name__ == "__main__":
 
     # Llama a la función MatrixChainOrder y muestra el resultado
     print("Cantidad minima de multiplicaiones ", MatrixChainOrder(arr, 1, N - 1))
+
+# This code is contributed by Aryan Garg
+
+# Modified by MarianoReyes & EstebanAG1005
