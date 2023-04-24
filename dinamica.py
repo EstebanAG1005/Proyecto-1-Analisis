@@ -32,3 +32,7 @@ def MatrixChainOrder(p, n):
 arr = [1, 2, 3, 4, 3]  # Lista de dimensiones de matrices
 n = len(arr)
 print("Cantidad minima de multiplicaiones ", MatrixChainOrder(arr, n))
+
+# This code is contributed by rag2127
+
+# Modified by MarianoReyes & EstebanAG1005
