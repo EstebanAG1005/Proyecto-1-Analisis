@@ -26,7 +26,7 @@ def matrixChainMemoised(p, i, j):
     return dp[i][j]  # Retorna el mínimo número de multiplicaciones
 
 
-def MatrixChainOrder(p, n):
+def MatrixChainOrderPD(p, n):
     i = 1
     j = n - 1
     return matrixChainMemoised(p, i, j)  # Llama a la función con memoización
@@ -39,7 +39,7 @@ arr = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50,
 n = len(arr)
 
 start_time = time.time()
-cantidad = MatrixChainOrder(arr, n)
+cantidad = MatrixChainOrderPD(arr, n)
 end_time = time.time()
 
 time_elapsed = end_time - start_time

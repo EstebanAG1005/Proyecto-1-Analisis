@@ -2,7 +2,7 @@ import sys
 import time
 
 
-def MatrixChainOrder(p, i, j):
+def MatrixChainOrderDaC(p, i, j):
     if i == j:  # Caso base: no hay multiplicación necesaria
         return 0
 
@@ -12,8 +12,8 @@ def MatrixChainOrder(p, i, j):
     for k in range(i, j):
         # Resuelve subproblemas de manera recursiva (Conquer)
         count = (
-            MatrixChainOrder(p, i, k)
-            + MatrixChainOrder(p, k + 1, j)
+            MatrixChainOrderDaC(p, i, k)
+            + MatrixChainOrderDaC(p, k + 1, j)
             # Calcula el costo adicional de multiplicar las matrices
             + p[i - 1] * p[k] * p[j]
         )
@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
     start_time = time.time()
     # Llama a la función MatrixChainOrder y muestra el resultado
-    cantidad = MatrixChainOrder(arr, 1, n - 1)
+    cantidad = MatrixChainOrderDaC(arr, 1, n - 1)
     end_time = time.time()
 
     time_elapsed = end_time - start_time
