@@ -19,9 +19,11 @@ pruebas = [
     [12, 25, 25, 125, 23, 23, 32, 12, 34, 34, 100, 15, 34, 56, 35, 100],
     [12, 25, 25, 125, 23, 23, 32, 12, 34, 34, 100, 15, 34, 56, 54, 102, 123],
     [12, 25, 25, 125, 23, 23, 32, 12, 34, 34, 100, 15, 34, 56, 54, 102, 123, 122],
-    [12, 25, 25, 125, 23, 23, 32, 12, 34, 34, 100, 15, 34, 56, 54, 102, 123, 102, 140],
+    [12, 25, 25, 125, 23, 23, 32, 12, 34, 34,
+        100, 15, 34, 56, 54, 102, 123, 102, 140],
 ]
 
+print("\nTiempos Programación Dinámica: ")
 pd_times = []
 
 for prueba in pruebas:
@@ -30,10 +32,10 @@ for prueba in pruebas:
     cantidad = MatrixChainOrderPD(prueba, n)
     end_time = time.time()
     time_elapsed = end_time - start_time
-    print(cantidad, time_elapsed)
+    print(prueba, cantidad, time_elapsed)
     pd_times.append(time_elapsed)
 
-
+print("\nTiempos Divide and Conquer: ")
 dac_times = []
 
 for prueba in pruebas:
@@ -42,7 +44,7 @@ for prueba in pruebas:
     cantidad = MatrixChainOrderDaC(prueba, 1, n - 1)
     end_time = time.time()
     time_elapsed = end_time - start_time
-    print(cantidad, time_elapsed)
+    print(prueba, cantidad, time_elapsed)
     dac_times.append(time_elapsed)
 
 # Código para calcular las listas dac_times y pd_times
