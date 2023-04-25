@@ -19,35 +19,31 @@ pruebas = [
     [12, 25, 25, 125, 23, 23, 32, 12, 34, 34, 100, 15, 34, 56, 35, 100],
     [12, 25, 25, 125, 23, 23, 32, 12, 34, 34, 100, 15, 34, 56, 54, 102, 123],
     [12, 25, 25, 125, 23, 23, 32, 12, 34, 34, 100, 15, 34, 56, 54, 102, 123, 122],
-    [12, 25, 25, 125, 23, 23, 32, 12, 34, 34,
-        100, 15, 34, 56, 54, 102, 123, 102, 140],
-
+    [12, 25, 25, 125, 23, 23, 32, 12, 34, 34, 100, 15, 34, 56, 54, 102, 123, 102, 140],
 ]
-
-dac_times = []
-
-for prueba in pruebas:
-    n = len(prueba)
-    start_time = time.time()
-    # Llama a la función MatrixChainOrder y muestra el resultado
-    cantidad = MatrixChainOrderDaC(prueba, 1, n - 1)
-    end_time = time.time()
-    time_elapsed = end_time - start_time
-    print(cantidad, time_elapsed)
-    dac_times.append(time_elapsed)
-
 
 pd_times = []
 
 for prueba in pruebas:
     n = len(prueba)
     start_time = time.time()
-    # Llama a la función MatrixChainOrder y muestra el resultado
     cantidad = MatrixChainOrderPD(prueba, n)
     end_time = time.time()
     time_elapsed = end_time - start_time
     print(cantidad, time_elapsed)
     pd_times.append(time_elapsed)
+
+
+dac_times = []
+
+for prueba in pruebas:
+    n = len(prueba)
+    start_time = time.time()
+    cantidad = MatrixChainOrderDaC(prueba, 1, n - 1)
+    end_time = time.time()
+    time_elapsed = end_time - start_time
+    print(cantidad, time_elapsed)
+    dac_times.append(time_elapsed)
 
 # Código para calcular las listas dac_times y pd_times
 dac_times = [round(time, 4) for time in dac_times]
@@ -58,9 +54,9 @@ pd_times = [round(time, 4) for time in pd_times]
 pd_times.sort()
 print("Tiempos PD: ", pd_times)
 
-plt.plot(dac_times, label='DaC')
-plt.plot(pd_times, label='PD')
-plt.xlabel('Número de prueba')
-plt.ylabel('Tiempo de ejecución (segundos)')
+plt.plot(dac_times, label="DaC")
+plt.plot(pd_times, label="PD")
+plt.xlabel("Número de prueba")
+plt.ylabel("Tiempo de ejecución (segundos)")
 plt.legend()
 plt.show()

@@ -1,11 +1,7 @@
 import sys
-import time
-
-# Tabla para almacenar resultados previamente calculados (memoización)
-dp = [[-1 for i in range(100)] for j in range(100)]
 
 
-def matrixChainMemoised(p, i, j):
+def matrixChainMemoised(p, i, j, dp):
     if i == j:  # Caso base: no hay multiplicación necesaria
         return 0
 
@@ -18,8 +14,8 @@ def matrixChainMemoised(p, i, j):
     for k in range(i, j):
         dp[i][j] = min(
             dp[i][j],
-            matrixChainMemoised(p, i, k)
-            + matrixChainMemoised(p, k + 1, j)
+            matrixChainMemoised(p, i, k, dp)
+            + matrixChainMemoised(p, k + 1, j, dp)
             + p[i - 1] * p[k] * p[j],
         )
 
@@ -27,11 +23,13 @@ def matrixChainMemoised(p, i, j):
 
 
 def MatrixChainOrderPD(p, n):
+    # Inicializa la matriz dp localmente
+    dp = [[-1 for i in range(100)] for j in range(100)]
     i = 1
     j = n - 1
-    return matrixChainMemoised(p, i, j)  # Llama a la función con memoización
+    # Pasa la matriz dp como argumento adicional
+    return matrixChainMemoised(p, i, j, dp)
 
 
 # This code is contributed by rag2127
-
 # Modified by MarianoReyes & EstebanAG1005
