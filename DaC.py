@@ -25,21 +25,6 @@ def MatrixChainOrderDaC(p, i, j):
     return _min  # Retorna el mínimo número de multiplicaciones
 
 
-if __name__ == "__main__":
-    # Lista de dimensiones de matrices
-    arr = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50,
-           55, 60, 65, 70, 75, 80, 85]
-    n = len(arr)
-
-    start_time = time.time()
-    # Llama a la función MatrixChainOrder y muestra el resultado
-    cantidad = MatrixChainOrderDaC(arr, 1, n - 1)
-    end_time = time.time()
-
-    time_elapsed = end_time - start_time
-    print("\nTiempo de ejecución para el algoritmo DaC: ", time_elapsed)
-    print("\nCantidad minima de multiplicaiones ", cantidad)
-
 # This code is contributed by Aryan Garg
 
 # Modified by MarianoReyes & EstebanAG1005
